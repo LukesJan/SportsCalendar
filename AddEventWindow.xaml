@@ -1,0 +1,114 @@
+﻿<Window x:Class="Calendar.AddEventWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar.Scripts"
+        mc:Ignorable="d"
+        Title="Add New Event" 
+        Height="350" 
+        Width="400"
+        WindowStartupLocation="CenterOwner"
+        Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        FontFamily="Segoe UI">
+
+    <Border CornerRadius="8" 
+            Background="{DynamicResource SecondaryBrush}" 
+            BorderBrush="{DynamicResource AccentBrush}" 
+            BorderThickness="1"
+            Margin="15">
+
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            
+            <Border Grid.Row="0" 
+                    Background="{DynamicResource AccentBrush}" 
+                    CornerRadius="8,8,0,0"
+                    Padding="15,10">
+                <TextBlock Text="ADD NEW EVENT" 
+                           Foreground="White" 
+                           FontWeight="Bold"
+                           FontSize="16"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+
+            
+            <StackPanel Grid.Row="1" Margin="15,20,15,10">
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="Event Title" 
+                               Foreground="{DynamicResource TextBrush}"/>
+                    <TextBox x:Name="TitleBox" 
+                             Height="40"
+                             Padding="8"
+                             Background="{DynamicResource PrimaryBrush}"
+                             Foreground="{DynamicResource TextBrush}"
+                             BorderBrush="{DynamicResource AccentBrush}"
+                             BorderThickness="1"
+                             FontSize="14"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="Event Type" 
+                               Foreground="{DynamicResource TextBrush}"/>
+                    <ComboBox x:Name="TagComboBox" 
+                              Height="34"
+                              Style="{StaticResource {x:Type ComboBox}}"
+                              FontSize="14">
+                        <ComboBoxItem Content="Match" Style="{StaticResource {x:Type ComboBoxItem}}"/>
+                        <ComboBoxItem Content="Training" Style="{StaticResource {x:Type ComboBoxItem}}"/>
+                        <ComboBoxItem Content="Gym" Style="{StaticResource {x:Type ComboBoxItem}}"/>
+                        <ComboBoxItem Content="Tactics" Style="{StaticResource {x:Type ComboBoxItem}}"/>
+                        <ComboBoxItem Content="Other" Style="{StaticResource {x:Type ComboBoxItem}}"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="Time (HH:mm)" 
+                               Foreground="{DynamicResource TextBrush}"/>
+                    <TextBox x:Name="TimeBox" 
+                             Height="33"
+                             Padding="8"
+                             Background="{DynamicResource PrimaryBrush}"
+                             Foreground="{DynamicResource TextBrush}"
+                             BorderBrush="{DynamicResource AccentBrush}"
+                             BorderThickness="1"
+                             FontSize="11" TextChanged="TimeBox_TextChanged"/>
+                </StackPanel>
+            </StackPanel>
+
+           
+            <Border Grid.Row="1" 
+                    Background="{DynamicResource SecondaryBrush}" 
+                    CornerRadius="0,0,8,8"
+                    Padding="15,10" Margin="0,217,0,0" Grid.RowSpan="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Cancel" 
+                            Width="100" 
+                            Height="34"
+                            Margin="0,0,12,0"
+                            Background="{DynamicResource AccentBrush}"
+                            Foreground="{DynamicResource TextBrush}"
+                            Style="{StaticResource {x:Type Button}}"
+                            Click="Cancel_Click"/>
+                    <Button Content="Add" 
+                            Width="100" 
+                            Height="34"
+                            Background="{DynamicResource AccentBrush}"
+                            Foreground="{DynamicResource TextBrush}"
+                            Style="{StaticResource {x:Type Button}}"
+                            Click="Add_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
